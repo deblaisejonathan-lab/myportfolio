@@ -1,0 +1,204 @@
+/* =========================================
+   PAGE CV (cv.html) + MODE IMPRESSION PDF
+   ========================================= */
+.nav-links a.active-link {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.cv-page {
+  padding: 56px 0 80px;
+}
+
+.cv-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.78));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  margin-bottom: 28px;
+}
+
+.cv-header h1 {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 6px;
+}
+
+.cv-role {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 14px;
+}
+
+.cv-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.cv-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cv-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 0.85fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.cv-main,
+.cv-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+
+.cv-main h2 {
+  font-size: 1.35rem;
+  margin-bottom: 20px;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  border-left: 2px solid var(--border);
+  padding-left: 20px;
+  margin-left: 6px;
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -27px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+}
+
+.timeline-date {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.timeline-content h3 {
+  font-size: 1.08rem;
+  margin-bottom: 4px;
+}
+
+.timeline-place {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.timeline-desc {
+  font-size: 0.93rem;
+  color: var(--text-muted);
+}
+
+.cv-list {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: var(--text-muted);
+  font-size: 0.93rem;
+}
+
+.cv-list strong {
+  color: var(--text);
+}
+
+.cv-tags {
+  padding-top: 4px;
+}
+
+@media (max-width: 900px) {
+  .cv-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .cv-header {
+    padding: 20px;
+  }
+
+  .cv-actions,
+  .cv-actions .btn {
+    width: 100%;
+  }
+}
+
+/* MISE EN PAGE PROPRE SI ON IMPRIME / EXPORTE EN PDF */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .cv-page {
+    padding: 0;
+  }
+
+  .cv-header,
+  .card {
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    box-shadow: none !important;
+    color: #0f172a !important;
+    break-inside: avoid;
+  }
+
+  .cv-role,
+  .eyebrow,
+  .timeline-date {
+    color: #1d4ed8 !important;
+  }
+
+  .cv-meta,
+  .timeline-desc,
+  .cv-list {
+    color: #334155 !important;
+  }
+
+  .timeline-place,
+  .cv-list strong,
+  h1, h2, h3 {
+    color: #0f172a !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
